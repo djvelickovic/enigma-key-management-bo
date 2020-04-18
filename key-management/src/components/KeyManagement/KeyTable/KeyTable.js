@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const KeyTable = (props) => {
     const keys = props.keys.map((key, index) =>
-        (<tr>
+        (<tr key={index}>
             <td>{index}</td>
             <td>{key.name}</td>
             <td>{key.created}</td>
