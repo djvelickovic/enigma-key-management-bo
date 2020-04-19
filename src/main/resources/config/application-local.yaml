@@ -1,8 +1,8 @@
 enigma:
   client:
-    enigma-base-url: "http://localhost:8081/enigma/"
-    two-way-enabled: false
-    # enigma-base-url: "https://localhost:8444/enigma/"
+    #    enigma-base-url: "http://localhost:8081/enigma/"
+    two-way-enabled: true
+    enigma-base-url: "https://localhost:8444/enigma/"
     # key store
     key-store: enigmaclient.p12
     key-store-password: 2secure4u

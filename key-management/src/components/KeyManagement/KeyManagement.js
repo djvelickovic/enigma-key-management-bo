@@ -13,7 +13,7 @@ class KeyManagement extends Component {
     }
 
     fetchKeys() {
-        Axios.get("/enigma/keys")
+        Axios.get("/keys")
             .then(response => {
                 this.setState({keys: response.data})
             })
@@ -28,7 +28,7 @@ class KeyManagement extends Component {
     }
 
     createKey(keyName) {
-        Axios.post("/enigma/keys", { name: keyName })
+        Axios.post("/keys", { name: keyName })
             .then(response => {
                 const alert = <Alert onClick={() => this.clearAlert()} variant="success">Successfully created key {keyName}</Alert>
                 this.setState({alert});
