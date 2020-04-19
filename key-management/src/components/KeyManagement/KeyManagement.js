@@ -18,9 +18,8 @@ class KeyManagement extends Component {
                 this.setState({keys: response.data})
             })
             .catch(response => {
-                const alert = <Alert variant="danger">Failed to load keys</Alert>
+                const alert = <Alert onClick={() => this.clearAlert()} variant="danger">Failed to load keys</Alert>
                 this.setState({alert});
-                setTimeout(() => this.clearAlert(), 3000);
             })
     }
 
@@ -31,15 +30,14 @@ class KeyManagement extends Component {
     createKey(keyName) {
         Axios.post("/enigma/keys", { name: keyName })
             .then(response => {
-                const alert = <Alert variant="success">Successfully created key {keyName}</Alert>
+                const alert = <Alert onClick={() => this.clearAlert()} variant="success">Successfully created key {keyName}</Alert>
                 this.setState({alert});
-                setTimeout(() => this.clearAlert(), 3000);
                 this.fetchKeys();
             })
-            .catch(response => {
-                const alert = <Alert variant="danger">Failed to create key {keyName}</Alert>
+            .catch(error => {
+                console.log(error.response);
+                const alert = <Alert onClick={() => this.clearAlert()} variant="danger">Failed to create key {keyName}. Message {error.response.data.description}</Alert>
                 this.setState({alert});
-                setTimeout(() => this.clearAlert(), 3000);
             })
     }
 

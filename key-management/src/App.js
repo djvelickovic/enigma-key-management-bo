@@ -3,25 +3,26 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import KeyManagement from "./components/KeyManagement/KeyManagement";
 import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
-const MOCKED_KEYS = [
-    {
-        name: "key1",
-        created: "2020-04-13T19:24:05.66948",
-        active: true
-    },
-    {
-        name: "key2",
-        created: "2020-04-14T18:30:40.393894",
-        active: true
-    }
-];
 
 function App() {
     return (
         <div>
+            <Navbar bg="light" expand="lg">
+                <Navbar.Brand href="#home">Enigma</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#link">Link</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+            <br/>
             <Container>
-                <KeyManagement keys={MOCKED_KEYS}/>
+                <KeyManagement/>
             </Container>
         </div>
     );
