@@ -1,4 +1,4 @@
-package io.isotope.enigma.keymanagementbo;
+package io.isotope.enigma.keymanagementbo.controllers;
 
 import io.isotope.enigma.client.KeyManagementClient;
 import org.springframework.http.MediaType;

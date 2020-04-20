@@ -1,4 +1,4 @@
-package io.isotope.enigma.keymanagementbo;
+package io.isotope.enigma.keymanagementbo.controllers;
 
 public class NewKeyRequest {
     private String name;
