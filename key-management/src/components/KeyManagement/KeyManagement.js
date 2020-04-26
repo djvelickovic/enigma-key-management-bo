@@ -3,7 +3,7 @@ import KeyTable from "./KeyTable/KeyTable";
 import KeyForm from "./KeyForm/KeyForm";
 import Axios from "axios";
 import Alert from "react-bootstrap/Alert";
-
+import {withCookies} from "react-cookie";
 
 class KeyManagement extends Component {
 
@@ -57,5 +57,5 @@ class KeyManagement extends Component {
     }
 }
 
-export default KeyManagement;
+export default withCookies(KeyManagement);
 
