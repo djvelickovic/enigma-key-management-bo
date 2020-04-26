@@ -1,5 +1,3 @@
 server:
-  port: 8443
-key-management-bo:
-  http-port: 8080
+  port: 10443
   

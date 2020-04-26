@@ -1,10 +1,7 @@
-key-management-bo:
-  http-port: 10080
 enigma:
   client:
-    #    enigma-base-url: "http://localhost:8081/enigma/"
     two-way-enabled: true
-    enigma-base-url: "https://localhost:8444/enigma/"
+    enigma-base-url: "https://enigma-engine-svc:11443/enigma/"
     # key store
     key-store: enigmaclient.p12
     key-store-password: 2secure4u
@@ -22,8 +19,10 @@ server:
     key-store: classpath:enigmabackoffice.p12
 
 keycloak:
-  auth-server-url: http://localhost:8082/auth
+  auth-server-url: http://enigma-keycloak-svc:12080/auth
   realm: enigma
   resource: enigma-engine
   ssl-required: external
   bearer-only: true
+
+#logging.level.root: debug

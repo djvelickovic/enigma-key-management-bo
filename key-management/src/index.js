@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Keycloak from "keycloak-js";
 import Root from "./Root";
 
-const initOptions = {url: "http://localhost:8082/auth", clientId: "backoffice", realm: "enigma"};
+const initOptions = {url: "http://localhost:12080/auth", clientId: "backoffice", realm: "enigma"};
 const keycloak = Keycloak(initOptions);
 
 keycloak.init({onLoad: "login-required"}).then((auth) => {
