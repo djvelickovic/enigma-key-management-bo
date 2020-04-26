@@ -9,14 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.isotope.enigma</groupId>
-    <artifactId>key-management-bo</artifactId>
+    <artifactId>enigma-backoffice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>key-management-bo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>enigma-backoffice</name>
 
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <frontend-src-dir>${project.basedir}/key-management</frontend-src-dir>
         <node.version>v12.3.1</node.version>
         <yarn.version>v1.16.0</yarn.version>
@@ -162,6 +160,37 @@
                                 </resource>
                             </resources>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.33.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>enigma/backoffice</name>
+                        </image>
+                    </images>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>start</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <!-- "build" should be used to create the images with the
+                                 artifact -->
+                            <goal>build</goal>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stop</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
