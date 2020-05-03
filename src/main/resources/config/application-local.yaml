@@ -5,12 +5,12 @@ enigma:
     two-way-enabled: true
     enigma-base-url: "https://localhost:11443/enigma/"
     # key store
-    key-store: enigmaclient.p12
+    key-store: classpath:enigmaclient.p12
     key-store-password: 2secure4u
     key-store-type: pkcs12
     key-store-alias: enigmaclient
     # trust store
-    trust-store: enigmaclient.p12
+    trust-store: classpath:enigmaclient.p12
     trust-store-password: 2secure4u
     trust-store-type: pkcs12
 server:
@@ -21,8 +21,10 @@ server:
     key-store: classpath:enigmabackoffice.p12
 
 keycloak:
-  auth-server-url: http://localhost:12080/auth
+  auth-server-url: https://localhost:12443/auth
   realm: enigma
   resource: enigma-engine
   ssl-required: external
   bearer-only: true
+  truststore: classpath:enigmabackoffice.p12
+  truststore-password: 2secure4u

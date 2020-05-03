@@ -8,8 +8,9 @@ const KeyTable = (props) => {
             <td>{index}</td>
             <td>{key.name}</td>
             <td>{key.created}</td>
+            <td>{key.updated}</td>
             <td>{key.active ? "Yes" : "No"}</td>
-            <td><Button variant="secondary" block>{key.active ? "Deactivate" : "Activate"}</Button></td>
+            <td><Button variant="secondary" onClick={() => props.onUpdate(key.name, !key.active)} block>{key.active ? "Deactivate" : "Activate"}</Button></td>
         </tr>)
     );
 
@@ -21,6 +22,7 @@ const KeyTable = (props) => {
                     <th>#</th>
                     <th>Key Name</th>
                     <th>Created</th>
+                    <th>Updated</th>
                     <th>Active</th>
                     <th></th>
                 </tr>

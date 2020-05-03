@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Keycloak from "keycloak-js";
 import Root from "./Root";
 
-const initOptions = {url: "http://localhost:12080/auth", clientId: "backoffice", realm: "enigma"};
+const initOptions = {url: "https://localhost:12443/auth", clientId: "backoffice", realm: "enigma"};
 const keycloak = Keycloak(initOptions);
 
 keycloak.init({onLoad: "login-required"}).then((auth) => {
@@ -18,7 +18,7 @@ keycloak.init({onLoad: "login-required"}).then((auth) => {
 
     //React Render
     ReactDOM.render(
-        <Root/>,
+        <Root onLogout={() => keycloak.logout()}/>,
         document.getElementById('root')
     );
 

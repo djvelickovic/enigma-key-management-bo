@@ -23,6 +23,20 @@ class KeyManagement extends Component {
             })
     }
 
+    updateKey(keyName, active) {
+        Axios.put("/keys/"+keyName, {active: active})
+            .then(response => {
+                const keys = [...this.state.keys];
+                const keyForUpdate = keys.find(k => k.name === keyName);
+                keyForUpdate.active = active;
+                this.setState({keys: keys});
+            })
+            .catch(response => {
+                const alert = <Alert onClick={() => this.clearAlert()} variant="danger">Failed to load keys</Alert>
+                this.setState({alert});
+            })
+    }
+
     clearAlert() {
         this.setState({alert: null})
     }
@@ -51,7 +65,7 @@ class KeyManagement extends Component {
             <div>
                 <KeyForm onCreate={(keyName) => this.createKey(keyName)}/>
                 {alert}
-                <KeyTable keys={this.state.keys}/>
+                <KeyTable keys={this.state.keys} onUpdate={(keyName, active) => this.updateKey(keyName, active)}/>
             </div>
         )
     }

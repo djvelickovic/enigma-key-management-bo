@@ -2,6 +2,7 @@ package io.isotope.enigma.keymanagementbo.config;
 
 import io.isotope.enigma.keymanagementbo.config.properties.KeyManagementBoProperties;
 import org.apache.catalina.connector.Connector;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Conditional(OnLocalProfile.class)
+@EnableConfigurationProperties({KeyManagementBoProperties.class})
 public class ServerConfiguration {
 
     @Bean

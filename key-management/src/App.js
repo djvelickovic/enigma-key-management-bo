@@ -9,12 +9,11 @@ import Axios from "axios";
 import {withCookies} from 'react-cookie';
 
 
-
 class App extends Component {
 
     constructor(props) {
         super(props);
-        const { cookies } = props;
+        const {cookies} = props;
 
         Axios.interceptors.request.use(function (config) {
             config.headers = {
@@ -38,8 +37,9 @@ class App extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Link</Nav.Link>
+                        </Nav>
+                        <Nav>
+                            <Nav.Link onClick={() => this.props.onLogout()} href="#">Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

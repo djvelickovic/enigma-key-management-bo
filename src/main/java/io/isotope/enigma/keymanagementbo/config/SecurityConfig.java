@@ -17,7 +17,6 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 @KeycloakConfiguration
