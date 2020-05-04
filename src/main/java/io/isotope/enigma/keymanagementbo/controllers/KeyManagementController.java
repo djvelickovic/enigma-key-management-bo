@@ -21,12 +21,12 @@ public class KeyManagementController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<KeySpecificationReduced>> getKeys(@RequestHeader("Authorization") String auth) {
-        return ResponseEntity.ok(keyManagementClient.getKeys(getAuthToken(auth)));
+        return ResponseEntity.ok(keyManagementClient.getKeys());
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createKey(@RequestHeader("Authorization") String auth, @RequestBody NewKeyRequest newKeyRequest) {
-        keyManagementClient.createKey(newKeyRequest.getName(), getAuthToken(auth));
+        keyManagementClient.createKey(newKeyRequest.getName());
         return ResponseEntity.ok().build();
     }
 
@@ -35,7 +35,7 @@ public class KeyManagementController {
             @RequestHeader("Authorization") String auth,
             @PathVariable String key,
             @RequestBody UpdateKeyRequest updateKeyRequest) {
-        keyManagementClient.updateKey(key, updateKeyRequest, getAuthToken(auth));
+        keyManagementClient.updateKey(key, updateKeyRequest);
         return ResponseEntity.ok().build();
     }
 

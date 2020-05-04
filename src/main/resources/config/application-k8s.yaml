@@ -11,6 +11,14 @@ enigma:
     trust-store: classpath:enigmaclient.p12
     trust-store-password: 2secure4u
     trust-store-type: pkcs12
+    oauth2:
+      client-id: enigma-admin
+      oauth2-token-uri: "https://localhost:12443/auth/realms/enigma/protocol/openid-connect/token"
+      client-secret: "d111a819-e793-417b-ab41-1ceb62320446"
+      trust-store: classpath:enigmaclient.p12
+      trust-store-password: 2secure4u
+      trust-store-type: pkcs12
+
 server:
   ssl:
     key-store-type: pkcs12
@@ -22,7 +30,7 @@ keycloak:
   auth-server-url: https://enigma-keycloak-svc:12443/auth
   realm: enigma
   resource: enigma-engine
-  ssl-required: external
+  ssl-required: all
   bearer-only: true
   truststore: classpath:enigmabackoffice.p12
   truststore-password: 2secure4u
