@@ -7,6 +7,9 @@ const KeyTable = (props) => {
         (<tr key={index}>
             <td>{index}</td>
             <td>{key.name}</td>
+            <td>{key.padding}</td>
+            <td>{key.blockCipherMode}</td>
+            <td>{key.size}</td>
             <td>{key.created}</td>
             <td>{key.updated}</td>
             <td>{key.active ? "Yes" : "No"}</td>
@@ -21,6 +24,9 @@ const KeyTable = (props) => {
                 <tr>
                     <th>#</th>
                     <th>Key Name</th>
+                    <th>Padding</th>
+                    <th>Block Cipher Mode</th>
+                    <th>Size</th>
                     <th>Created</th>
                     <th>Updated</th>
                     <th>Active</th>

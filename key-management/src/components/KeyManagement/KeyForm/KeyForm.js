@@ -17,6 +17,7 @@ class KeyForm extends Component {
     }
 
     render() {
+        const disabled = this.props.disabled
         return (
             <div>
                 <Row className="justify-content-md-center">
@@ -26,12 +27,15 @@ class KeyForm extends Component {
                                 <InputGroup.Text id="lbl-key-name">Key name</InputGroup.Text>
                             </InputGroup.Prepend>
                             <FormControl
+                                disabled={disabled}
                                 placeholder="example: service.purpose.version"
                                 aria-label="Key name"
                                 aria-describedby="lbl-key-name"
                                 onChange={(e) => this.onKeyNameChange(e.target.value)}
                             />
-                            <Button onClick={() => {
+                            <Button
+                                disabled={disabled}
+                                onClick={() => {
                                 this.props.onCreate(this.state.keyName);
                                 this.setState({keyName:""})
                             }}
