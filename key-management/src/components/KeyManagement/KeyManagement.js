@@ -49,9 +49,9 @@ class KeyManagement extends Component {
         })
     }
 
-    createKey(keyName) {
+    createKey(keyName, size) {
         this.setState({loading: true});
-        Axios.post("/keys", { name: keyName })
+        Axios.post("/keys", { name: keyName, size: size })
             .then(response => {
                 const alert = <Alert onClick={() => this.clearAlert()} variant="success">Successfully created key {keyName}</Alert>
                 this.setState({alert});
@@ -76,7 +76,7 @@ class KeyManagement extends Component {
         const spinner = this.state.loading ? <Row><Col className={"col-sm-1 mx-auto"}><Spinner animation={"border"} variant={"primary"} size={"lg"} role={"status"} /></Col></Row> : null;
         return (
             <div>
-                <KeyForm disabled={loading} onCreate={(keyName) => this.createKey(keyName)}/>
+                <KeyForm disabled={loading} onCreate={(keyName, size) => this.createKey(keyName, size)}/>
                 {spinner}
                 {alert}
                 <br/>

@@ -26,7 +26,7 @@ public class KeyManagementController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createKey(@RequestBody NewKeyRequest newKeyRequest) {
-        keyManagementClient.createKey(newKeyRequest.getName());
+        keyManagementClient.createKey(newKeyRequest.getName(), newKeyRequest.getSize());
         return ResponseEntity.ok().build();
     }
 
