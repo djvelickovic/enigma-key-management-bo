@@ -28,12 +28,13 @@ keycloak.init({onLoad: "login-required"}).then((auth) => {
     setTimeout(() => {
         keycloak.updateToken(70).then((refreshed) => {
             if (refreshed) {
-                console.log(keycloak.token);
-                console.log(keycloak.refreshToken);
+                localStorage.setItem("react-token", keycloak.token);
+                localStorage.setItem("react-refresh-token", keycloak.refreshToken);
                 console.debug("Token refreshed" + refreshed);
             } else {
                 console.warn("Token not refreshed, valid for "
-                    + Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000) + ' seconds');
+                    + Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000)
+                    + ' seconds');
             }
         }).catch((reason) => {
             console.error("Failed to refresh token " + reason);

@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import moment from "moment/moment";
 
 const KeyTable = (props) => {
     const keys = props.keys.map((key, index) =>
@@ -10,8 +11,8 @@ const KeyTable = (props) => {
             <td>{key.padding}</td>
             <td>{key.blockCipherMode}</td>
             <td>{key.size}</td>
-            <td>{key.created}</td>
-            <td>{key.updated}</td>
+            <td>{moment(key.created).format("DD-MM-yyyy HH:mm")}</td>
+            <td>{moment(key.updated).format("DD-MM-yyyy HH:mm")}</td>
             <td>{key.active ? "Yes" : "No"}</td>
             <td><Button variant="secondary" onClick={() => props.onUpdate(key.name, !key.active)} block>{key.active ? "Deactivate" : "Activate"}</Button></td>
         </tr>)

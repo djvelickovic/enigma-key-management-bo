@@ -2,7 +2,6 @@ key-management-bo:
   http-port: 10080
 enigma:
   client:
-    two-way-enabled: true
     enigma-base-url: "https://localhost:11443/enigma/"
     # key store
     key-store: classpath:enigmaclient.p12
